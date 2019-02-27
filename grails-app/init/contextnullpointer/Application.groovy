@@ -17,6 +17,7 @@ class Application extends GrailsAutoConfiguration {
         { ->
             try {
                 // This should throw NoSuchBeanDefinitionException but it throws a NullPointerException
+                // Also happens if using ref('noSuchBean') in a BeanBuilder context
                 applicationContext.getBean("noSuchBean")
             }
             catch(NoSuchBeanDefinitionException e) {
